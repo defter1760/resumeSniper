@@ -10,7 +10,7 @@ if (!isset($_SESSION['loggedIn']))
     $_SESSION['loggedIn'] = false;
 }
 if (isset($_POST['username']))
-{echo 'Here<br><br>';
+{#echo 'Here<br><br>';
 $pUser = $_POST['username'];
 $pPass = $_POST['password'];
     getuserdetails($pUser,$pPass);
@@ -54,14 +54,57 @@ if (!$_SESSION['loggedIn']):
 
 ?>
 
-<html><head><title>Login</title></head>
+<html>
+<head>
+<title>Login</title>
+</head>
   <body>
-    <p>You need to login</p>
-    <form method="post">
-      Username: <input type="password" name="username"> <br />    
-      Password: <input type="password" name="password"> <br />
-      <input type="submit" name="submit" value="Login">
-    </form>
+  <form method="post">
+  <table style="border:1px solid black;">
+    <tr>
+	<td>
+	
+	    <h1>Resume Sniper
+	    </h1>
+	    <table>
+		<tr>
+		    <td>
+                        <h2>You need to login:</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        
+                        Username: 
+                    </td>
+                    <td>
+                        <input type="password" name="username">
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Password:
+                        <td>
+                            <input type="password" name="password">
+                        </td>
+                </tr>
+                <tr>
+                <td>
+                    
+                </td>
+                    <td align=right>
+                        <input type="submit" name="submit" value="Login">   
+                    </td>
+                </tr>
+                         
+                        
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</form>
   </body>
 </html>
 

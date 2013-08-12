@@ -65,4 +65,35 @@ function adduser($usernameadd,$passwordadd)
     }
          
 }
+
+function updateuser($usernameupdate,$fieldname,$fieldsetto)
+{
+    $query = "SELECT * FROM userdata where username='".$usernameupdate."'";
+    $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+    
+    while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
+    {
+        $lineuser = $line['username'];
+
+      #  username,sniperpassmd5,email,emailpassmd5,emaildomain
+
+    }
+    {
+        if($usernameupdate == $lineuser)
+        {
+            //$newpass = md5($passwordadd);
+            $query = "UPDATE userdata set ".$fieldname."='".$fieldsetto."' where username='".$usernameupdate."'";
+            $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+        }
+        else
+        {
+            $exists = 'N';
+        }
+    }
+    if($exists == 'N')
+    {
+        
+    }
+         
+}
 ?>
