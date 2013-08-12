@@ -2,8 +2,21 @@
 require('mySQLconnect.php');
 
 
-if(isset($ID))
-{
+//function getuserdetails($usernamedetails,$password)
+//{
+//    $query = 'SELECT * FROM userdata where ID='.$usernamedetails;
+//    $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+//    
+//    while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
+//    {
+//        $sniperpassmd5 = $line['sniperpassmd5'];
+//        $email = $line['email'];
+//        $emailpassmd5 = $line['emailpassmd5'];
+//        $emaildomain = $line['emaildomain'];
+//      #  username,sniperpassmd5,email,emailpassmd5,emaildomain
+//
+//    }
+//}
     
     $query = 'SELECT * FROM clients where ID='.$ID;
     $result = mysql_query($query) or die('Query failed: ' . mysql_error());

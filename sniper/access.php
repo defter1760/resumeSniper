@@ -1,38 +1,64 @@
-//access.php
+<!--//access.php-->
 
 <?php
-//put sha1() encrypted password here - example is 'hello'
-$password = 'aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d';
+require('mySQLconnect.php');
+require('functions.php');
 
 session_start();
-if (!isset($_SESSION['loggedIn'])) {
+if (!isset($_SESSION['loggedIn']))
+{
     $_SESSION['loggedIn'] = false;
 }
+if (isset($_POST['username']))
+{echo 'Here<br><br>';
+$pUser = $_POST['username'];
+$pPass = $_POST['password'];
+    getuserdetails($pUser,$pPass);
 
-if (isset($_POST['password'])) {
-    if (sha1($_POST['password']) == $password) {
-        $_SESSION['loggedIn'] = true;
-    } else {
-        die ('Incorrect password');
+    if($exists == 'Y')
+    {
+        if (md5($_POST['password']) === $sniperpassmd5)
+        {
+            $_SESSION['loggedIn'] = true;
+            $_SESSION['UserName'] = $pUser;
+            $_SESSION['Email'] = $email;
+            $_SESSION['EmailMD5'] = $emailpassmd5;
+            $_SESSION['EmailDomain'] = $emaildomain;
+        }
+        else
+        {
+            die ('Incorrect password');
+        }
     }
-} 
+    else
+    {
+        echo 'Adding user: '.$_POST['username'];
+        adduser($_POST['username'],$_POST['password']);
+    }
+    
+}
+
 
 if (!$_SESSION['loggedIn']):
 
 ?>
 
 <?PHP
-if (sha1('waffle') == '3c24bffe42f67e21d9d4d5dbc01a6eafd9019422')
-{
-    echo 'Woof';
-}
-;
+//echo md5($_POST['password']);
+//         echo '<br><br><br>';
+//         echo $sniperpassmd5;
+//if (sha1('waffle') == '3c24bffe42f67e21d9d4d5dbc01a6eafd9019422')
+//{
+//    echo 'Woof';
+//}
+
 ?>
 
 <html><head><title>Login</title></head>
   <body>
     <p>You need to login</p>
     <form method="post">
+      Username: <input type="password" name="username"> <br />    
       Password: <input type="password" name="password"> <br />
       <input type="submit" name="submit" value="Login">
     </form>
