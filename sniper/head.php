@@ -30,11 +30,12 @@ input[type="checkbox"] {
     -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
     }  
   
-textarea {   
-    width: 400px;  
+input[type="text"],textarea {   
+    width: 150px;  
     max-width: 400px;  
-    height: 150px;  
-    line-height: 150%;  
+    height: 6em;  
+    line-height: 150%;
+    font: normal 10px/100% Verdana, Tahoma, sans-serif;
     }  
   
 input:hover, textarea:hover,  
@@ -93,3 +94,8 @@ a:hover {color:#fff;}  /* mouse over link */
 a:active {color:#fff;}  /* selected link */
 </style>
 </head>
+	    <h3>
+                <a href=index.php>Home</a>
+                <a href=scheduler.php>Scheduler</a>
+                <a href=logout.php>Log out</a>
+	    </h3>

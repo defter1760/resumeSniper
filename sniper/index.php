@@ -27,11 +27,11 @@ if(isset($pEmail))
     </tr>
     <tr>
 	<td>
-	    <h3>
+<!--	    <h3>
                 <a href=index.php>Home</a>
                 <a href=scheduler.php>Scheduler</a>
                 <a href=logout.php>Log out</a>
-	    </h3>
+	    </h3>-->
         </td>
     </tr>
     <tr>

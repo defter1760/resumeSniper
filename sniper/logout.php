@@ -1,9 +1,13 @@
 <?php
-require('head.php');
+#require('head.php');
     session_start();
     $_SESSION['loggedIn'] = false;
 ?>
-<table style="border:1px solid black;">
+
+<?PHP
+require('index.php');
+?>
+<!--<table style="border:1px solid black;">
     <tr>
 	<td>
 	
@@ -18,5 +22,5 @@ require('head.php');
         </td>
     </tr>
 </table>
-<br><br>
-<a href=index.php>Home</a>
+<br><br>-->
+<!--<a href=index.php>Home</a>-->
