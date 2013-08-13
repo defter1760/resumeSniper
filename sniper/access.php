@@ -25,7 +25,8 @@ $pPass = $_POST['password'];
             $_SESSION['Email'] = $email;
             $_SESSION['DefaultCoverletter'] = $defaultcoverletter;
             $_SESSION['PrefHourOfDay'] = $prefhourofday;
-            $_SESSION['EmailMD5'] = $emailpassmd5;
+            decryptthis($_SESSION['UserName'],$emailpassmd5);
+            $_SESSION['EmailMD5'] = $decryptedthis;
             $_SESSION['EmailDomain'] = $emaildomain;
         }
         else

@@ -18,7 +18,8 @@ if(isset($pEmail))
     updateuser($_SESSION['UserName'],'email',$pEmail);
     if(isset($pEmailpass))
     {
-        updateuser($_SESSION['UserName'],'emailpassmd5',md5($pEmailpass));    
+        encryptthis($_SESSION['UserName'],$pEmailpass);
+        updateuser($_SESSION['UserName'],'emailpassmd5',$encryptedthis);    
     }
     if(isset($pDefaultcoverletter))
     {

@@ -1,5 +1,5 @@
 <?PHP
-
+//require('access.php');
 
 $dateNOW = date('Y').'-'.date('m').'-'.date('d');
 $dateNOWjason = date('m').'/'.date('d').'/'.date('Y');
@@ -9,6 +9,10 @@ $weekNOW = date('Y').'-'.date('W');
 
 $hourNOW = date('G');
 
+if(isset($_GET['username']))
+{
+    getuserdetails($_GET['username']);
+}
 
 $message = "
 

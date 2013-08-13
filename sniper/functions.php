@@ -15,7 +15,6 @@ function encryptthis($key,$string)
     global $encryptedthis;
     $encryptedthis = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($key), $string, MCRYPT_MODE_CBC, md5(md5($key))));
     $encryptedthis = rtrim($encryptedthis,"=");
-
 }
 
 function decryptthis($key,$encrypted)
@@ -26,7 +25,7 @@ function decryptthis($key,$encrypted)
 
 }
 
-function getuserdetails($usernamedetails,$password)
+function getuserdetails($usernamedetails)
 {
     global $lineuser;
     global $sniperpassmd5;
@@ -51,8 +50,7 @@ function getuserdetails($usernamedetails,$password)
         $userid = $line['iduserdata'];
         $defaultcoverletter = $line['defaultcoverletter'];
         $prefhourofday = $line['prefhourofday'];
-      #  username,sniperpassmd5,email,emailpassmd5,emaildomain
-#echo $sniperpassmd5.'<br><br>';
+
     }
     {
         if($usernamedetails == $lineuser)
