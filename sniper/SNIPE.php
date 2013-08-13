@@ -13,6 +13,15 @@ if(isset($_GET['username']))
 {
     getuserdetails($_GET['username']);
 }
+$mailbomb= explode('@',$email);
+#echo $mailbomb['1'];
+
+$maildomain= $mailbomb['1'];
+
+if($maildomain == 'gmail.com')
+{
+    $mailhost= '';
+}
 
 $message = "
 

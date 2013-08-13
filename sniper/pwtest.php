@@ -22,8 +22,6 @@ echo $decryptedthis;
 echo '<br><br>';
 echo '<br><br>';
 $stringmail = "defter@gmail.com";
-$mailbomb= explode($stringmail,'@');
-print_r($mailbomb);
-$trimmy= ltrim($stringmail,"@");
-echo $trimmy;
+$mailbomb= explode('@',$stringmail);
+echo $mailbomb['1'];
 ?>
