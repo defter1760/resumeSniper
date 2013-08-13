@@ -1,12 +1,20 @@
 <?PHP
 require('head.php');
 require('access.php');
+if(isset($_POST['email']))
+{
+    if(isset($_POST['emailbody']))
+    {
+        addmail($_SESSION['UserID'],$_POST['date'],$_POST['email'],$_POST['emailbody'],$_POST['reminder'],$_POST['url']);
+    }
+}
 ?>
 
+<form method="post">
 <table style="border-collapse:collapse;" style="border:1px solid black;">
     <tr>
         <th style="border:1px solid black;" >
-            Date
+            Date Added
         </th>
         <th style="border:1px solid black;">
             Email Address
@@ -19,17 +27,20 @@ require('access.php');
         </th>
         <th style="border:1px solid black;">
             URL
+        </th>
+        <th style="border:1px solid black;">
+            Log
         </th>        
     </tr>
     <tr>
         <td style="border:1px solid black;" valign=bottom>
-            <input type=text name=date>
+            <input type=text name=date value="<?PHP echo date("m".'-'."d".'-'."Y");?>">
         </td>
         <td style="border:1px solid black;" valign=bottom>
             <input type=text name=email>
         </td>
         <td style="border:1px solid black;" valign=bottom>
-            <textarea type=text name=emailbody></textarea>
+            <textarea type=text name=emailbody><?PHP echo $_SESSION['DefaultCoverletter']; ?></textarea>
         </td>
         <td style="border:1px solid black;" valign=bottom>
             <input type=text name=reminder>
@@ -37,5 +48,11 @@ require('access.php');
         <td style="border:1px solid black;" valign=bottom>
             <input type=text name=url>
         </td>
-    </tr>    
+        <td style="border:1px solid black;" valign=bottom>
+            <input type="submit" value="Schedule" class="submit"/>
+        </td>        
+    </tr>
+<?PHP
+getmaildetails($_SESSION['UserName']);
+?>
 </table>

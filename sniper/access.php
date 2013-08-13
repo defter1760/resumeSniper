@@ -21,7 +21,10 @@ $pPass = $_POST['password'];
         {
             $_SESSION['loggedIn'] = true;
             $_SESSION['UserName'] = $pUser;
+            $_SESSION['UserID'] = $userid;
             $_SESSION['Email'] = $email;
+            $_SESSION['DefaultCoverletter'] = $defaultcoverletter;
+            $_SESSION['PrefHourOfDay'] = $prefhourofday;
             $_SESSION['EmailMD5'] = $emailpassmd5;
             $_SESSION['EmailDomain'] = $emaildomain;
         }

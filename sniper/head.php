@@ -36,8 +36,28 @@ input[type="text"],textarea {
     height: 6em;  
     line-height: 150%;
     font: normal 10px/100% Verdana, Tahoma, sans-serif;
-    }  
-  
+    }
+    
+textarea.index {   
+    width: 650px;  
+    max-width: 550px;  
+    height: 20em;  
+    line-height: 150%;
+    font: normal 10px/100% Verdana, Tahoma, sans-serif;
+    }
+select.index{   
+    padding: 9px;  
+    border: solid 1px #E5E5E5;  
+    outline: 0;  
+    font: normal 13px/100% Verdana, Tahoma, sans-serif;  
+    width: 5em;  
+    background: #FFFFFF url('bg_form.png') left top repeat-x;  
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));  
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);  
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    }    
 input:hover, textarea:hover,  
 input:focus, textarea:focus {   
     border-color: #C9C9C9;   
@@ -92,7 +112,13 @@ a:link {color:#fff;}      /* unvisited link */
 a:visited {color:#fff;}  /* visited link */
 a:hover {color:#fff;}  /* mouse over link */
 a:active {color:#fff;}  /* selected link */
+
+a.schedule:link {color:#000;}      /* unvisited link */
+a.schedule:visited {color:#000;}  /* visited link */
+a.schedule:hover {color:#000;}  /* mouse over link */
+a.schedule:active {color:#000;}  /* selected link */
 </style>
+
 </head>
 	    <h3>
                 <a href=index.php>Home</a>
