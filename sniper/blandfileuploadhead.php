@@ -14,14 +14,13 @@ if(isset($_FILES['file']))
     $extension = end($temp);
     if(isset($temp))
     {
-        echo 'PIE';
         if ($_FILES['file']['error'] > 0)
         {
             echo "Return Code: " . $_FILES['file']['error'] . "<br>";
         }
         else
         {
-            echo "Upload: " . $_FILES['file']['name'] . "<br>";
+            #echo "Upload: " . $_FILES['file']['name'] . "<br>";
             if(is_dir("upload/".$username."/old"))
             {
                 #echo 'do something if the directory does exist';
