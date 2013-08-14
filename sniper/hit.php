@@ -1,4 +1,16 @@
+<?php
+
+  $im=imagecreate(1,1);
+  $white=imagecolorallocate($im,255,255,255);
+  imagesetpixel($im,1,1,$white);
+  header("content-type:image/jpg");
+  imagejpeg($im);
+  imagedestroy($im);
+
+?>
+
 <?PHP
+require('mySQLconnect.php');
 $date = date('Y').'-'.date('m').'-'.date('d');
 $time = date('H').':'.date('i').':'.date('s');
 $month = date('Y').'-'.date('m');
@@ -35,21 +47,18 @@ echo "}";
 echo "</script>";
 
 }
-
-
-$serverName = "localhost\SPICE";
-$connectionInfo = array( "Database"=>"SpiceData", "UID"=>"SpiceWriter2012", "PWD"=>"p1c3righttwoohonetwo");
-$conn = sqlsrv_connect( $serverName, $connectionInfo );
-
 if (isset($_SERVER['HTTP_REFERER'])) $ref = $_SERVER['HTTP_REFERER'];
 if (empty($ref)) $ref = '';
 if (isset($_SERVER['REMOTE_ADDR'])) $ip = $_SERVER['REMOTE_ADDR'];
 if (empty($ip)) $ip = '';
 if (isset($_SERVER['REMOTE_HOST'])) $dns = $_SERVER['REMOTE_HOST'];
 if (empty($dns)) $dns = '';
-if (isset($_GET['uniqueid'])) $uniqueid = $_GET['uniqueid'];
-if (empty($uniqueid)) $uniqueid = '';
- $query = "INSERT INTO hits (ref,date,time,week,month,ip,dns,uniqueid,hour,day,resolution)
- VALUES ('$ref','$date','$time','$week','$month','$ip','$dns','$uniqueid','$hour','$day','$screen_res')";
-$results = sqlsrv_query($conn,$query);
+if (isset($_GET['id'])) $userid = $_GET['id'];
+if (empty($userid)) $userid = '';
+if (isset($_GET['id2'])) $appliedid = $_GET['id2'];
+if (empty($appliedid)) $appliedid = '';
+
+ $query = "INSERT INTO hits (ref,date,time,week,month,ip,dns,userid,appliedid,hour,day,resolution)
+ VALUES ('$ref','$date','$time','$week','$month','$ip','$dns','$userid','$appliedid','$hour','$day','$screen_res')";
+$result = mysql_query($query) or die('Query failed: ' . mysql_error());
 ?>

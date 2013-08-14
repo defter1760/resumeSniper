@@ -28,6 +28,7 @@ $pPass = $_POST['password'];
             decryptthis($_SESSION['UserName'],$emailpassmd5);
             $_SESSION['EmailMD5'] = $decryptedthis;
             $_SESSION['EmailDomain'] = $emaildomain;
+            $_SESSION['ReplyToName'] = $replytoname;
         }
         else
         {

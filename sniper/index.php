@@ -10,6 +10,10 @@ if (empty($pEmailpass)) unset($pEmailpass);
 if (isset($_POST['defaultcoverletter'])) $pDefaultcoverletter = $_POST['defaultcoverletter'];
 if (empty($pDefaultcoverletter)) unset($pDefaultcoverletter);
 
+if (isset($_POST['replytoname'])) $pReplytoname = $_POST['replytoname'];
+if (empty($pReplytoname)) unset($pReplytoname);
+
+
 if (isset($_POST['prefhourofday'])) $pPrefhourofday = $_POST['prefhourofday'];
 if (empty($pPrefhourofday)) unset($pPrefhourofday);
 
@@ -25,6 +29,10 @@ if(isset($pEmail))
     {
         updateuser($_SESSION['UserName'],'defaultcoverletter',$pDefaultcoverletter);
     }
+    if(isset($pReplytoname))
+    {
+        updateuser($_SESSION['UserName'],'replytoname',$pReplytoname);
+    }    
     if(isset($pPrefhourofday))
     {
         updateuser($_SESSION['UserName'],'prefhourofday',$pPrefhourofday);
@@ -100,6 +108,24 @@ if(isset($pEmail))
                         ?>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        
+                        Email Reply to name: 
+                    </td>
+                    <td>
+                        <?PHP
+                            if(isset($_SESSION['ReplyToName']))
+                            {
+                                echo '<input type=text name=replytoname value="'.$_SESSION['ReplyToName'].'">';
+                            }
+                            else
+                            {
+                                echo '<input type=text name=replytoname>';
+                            }
+                        ?>
+                    </td>
+                </tr>                
                 <tr>
                     <td>
                         

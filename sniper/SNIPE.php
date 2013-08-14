@@ -10,13 +10,18 @@ $weekNOW = date('Y').'-'.date('W');
 
 $hourNOW = date('G');
 
-//if(isset($_GET['username']))
+#$username = 'defter';
+
+getuserlist();#gets everyone in the system and puts them into an array
+foreach ($userlist as $username)
 {
-    getuserdetails($_GET['username']);
+    getuserdetails($username);
 }
 
-$username = 'defter';
-$email = 'defter@gmail.com';
+
+
+
+#$email = 'defter@gmail.com';
 $mailbomb= explode('@',$email);
 #echo $mailbomb['1'];
 
@@ -31,7 +36,7 @@ if($maildomain == 'gmail.com')
 
 $message = "
 Waffles and Pickles
-<img style='-webkit-user-select: none' src='http://in0.us/hit.php?'>
+<img style='-webkit-user-select: none' src='http://in0.us/hit.php?id=".$userid."&id2=testing'>
 ";        
 if(is_dir("upload/".$username))
 {
@@ -50,7 +55,10 @@ if(is_dir("upload/".$username))
         }
     }
 }
-echo $maildomain;
+#echo $maildomain;
+decryptthis($username,$emailpassmd5);
+echo $decryptedthis;
+echo '<br><br>';
 require_once('class.phpmailer.php');
 $mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
 
@@ -62,11 +70,11 @@ try
 	$mail->SMTPDebug  = 0;
 	$mail->SMTPAuth   = $mailauth;
 	$mail->Port       = $mailport;
-	$mail->Username   = "ian.s.hutchings@gmail.com";
-	$mail->Password   = "flaktyre499z0...";
+	$mail->Username   = $email;
+	$mail->Password   = $decryptedthis;
 	$mail->AddAddress('defter@gmail.com','Ian Hutchings');
-	$mail->SetFrom('ian.s.hutchings@gmail.com','Ian Hutchings');
-	$mail->AddBCC('defter@gmail.com', 'Ian Hutchings');
+	$mail->SetFrom($email,$replytoname);
+	$mail->AddBCC($email,$replytoname);
 	$mail->Subject = 'SNIPED '.$timeNOW;
 	$mail->MsgHTML($message);
         if (isset($attachment2))

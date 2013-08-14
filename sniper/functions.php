@@ -37,6 +37,7 @@ function getuserdetails($usernamedetails)
     global $userid;
     global $defaultcoverletter;
     global $prefhourofday;
+    global $replytoname;
     $query = "SELECT * FROM userdata where username='".$usernamedetails."'";
     $result = mysql_query($query) or die('Query failed: ' . mysql_error());
     
@@ -50,7 +51,7 @@ function getuserdetails($usernamedetails)
         $userid = $line['iduserdata'];
         $defaultcoverletter = $line['defaultcoverletter'];
         $prefhourofday = $line['prefhourofday'];
-
+        $replytoname = $line['replytoname'];
     }
     {
         if($usernamedetails == $lineuser)
@@ -63,7 +64,18 @@ function getuserdetails($usernamedetails)
         }
     }
 }
+function getuserlist()
+{
 
+    global $userlist;
+    $query = "SELECT * FROM userdata";
+    $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+    
+    while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
+    {
+        $userlist[] = $line['username'];
+    }
+}
 function getmaildetails($usernamemail)
 {
     global $lineuser;
