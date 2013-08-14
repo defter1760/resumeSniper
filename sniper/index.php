@@ -195,10 +195,14 @@ if(isset($pEmail))
                     </td>
                 </tr>
             </table>
+            </form>
+            <?PHP
+            require('blandfileupload.php');
+            ?>
         </td>
     </tr>
   </table>
-</form>
+
 <?PHP
 
 
