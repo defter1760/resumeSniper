@@ -67,13 +67,15 @@ function getuserdetails($usernamedetails)
 function getuserlist()
 {
 
-    global $userlist;
+    global $namelist;
+    global $hourlist;
     $query = "SELECT * FROM userdata";
     $result = mysql_query($query) or die('Query failed: ' . mysql_error());
     
     while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
     {
-        $userlist[] = $line['username'];
+        $namelist[] = $line['username'];
+        $hourlist[] = $line['prefhourofday'];
     }
 }
 function getmaildetails($usernamemail)
@@ -112,6 +114,11 @@ function getmaildetails($usernamemail)
             echo '">';
         echo '</td>';
         echo '<td style="border:1px solid black;" valign=bottom>';
+        echo '<input type=text disabled=disabled value="';
+            echo $line2['subject'];
+            echo '">';
+        echo '</td>';        
+        echo '<td style="border:1px solid black;" valign=bottom>';
         echo '<textarea disabled=disabled>';
             echo $line2['emailtext'];
             echo '</textarea >';
@@ -138,6 +145,33 @@ function getmaildetails($usernamemail)
     echo '</tr>';
     }
 
+}
+
+function getmailcount($usernamemail)
+{
+    global $mailcount;
+    
+    $query = "SELECT * FROM userdata where username='".$usernamemail."'";
+    $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+    
+    while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
+    {
+        
+        $userid = $line['iduserdata'];
+        #echo $userid;
+    }    
+    
+    $querymailarray = "SELECT * FROM applied where userid='".$userid."' and sent IS NULL";
+    $resultmailarray = mysql_query($querymailarray) or die('Query failed: ' . mysql_error());
+    while ($line2 = mysql_fetch_array($resultmailarray, MYSQL_ASSOC))
+    {
+        
+        $mailID = $line2['idapplied'];
+        $mailADDRESS = $line2['emailaddress'];
+        $mailTEXT = $line2['emailtext'];
+        
+    }
+        #print_r($mailarray);
 }
 
 function adduser($usernameadd,$passwordadd)
@@ -171,10 +205,10 @@ function adduser($usernameadd,$passwordadd)
          
 }
 
-function addmail($userid,$date,$email,$emailbody,$reminder,$url)
+function addmail($userid,$date,$email,$emailbody,$reminder,$url,$subject)
 {
-        $query = "insert into applied (userid,date,emailaddress,emailtext,reminder,url)
-        values('".$userid."','".$date."','".$email."','".$emailbody."','".$reminder."','".$url."')";
+        $query = "insert into applied (userid,date,emailaddress,emailtext,reminder,url,subject)
+        values('".$userid."','".$date."','".$email."','".$emailbody."','".$reminder."','".$url."','".$subject."')";
         $result = mysql_query($query) or die('Query failed: ' . mysql_error());
 }
 

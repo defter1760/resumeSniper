@@ -5,7 +5,7 @@ if(isset($_POST['email']))
 {
     if(isset($_POST['emailbody']))
     {
-        addmail($_SESSION['UserID'],$_POST['date'],$_POST['email'],$_POST['emailbody'],$_POST['reminder'],$_POST['url']);
+        addmail($_SESSION['UserID'],$_POST['date'],$_POST['email'],$_POST['emailbody'],$_POST['reminder'],$_POST['url'],$_POST['subject']);
     }
 }
 ?>
@@ -19,6 +19,9 @@ if(isset($_POST['email']))
         <th style="border:1px solid black;">
             Email Address
         </th>
+        <th style="border:1px solid black;">
+            Subject
+        </th>        
         <th style="border:1px solid black;">
             Email Body
         </th>
@@ -39,6 +42,9 @@ if(isset($_POST['email']))
         <td style="border:1px solid black;" valign=bottom>
             <input type=text name=email>
         </td>
+        <td style="border:1px solid black;" valign=bottom>
+            <input type=text name=subject>
+        </td>        
         <td style="border:1px solid black;" valign=bottom>
             <textarea type=text name=emailbody><?PHP echo $_SESSION['DefaultCoverletter']; ?></textarea>
         </td>
