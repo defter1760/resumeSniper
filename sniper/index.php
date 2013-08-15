@@ -1,16 +1,16 @@
 <?php
 require('head.php');
 require('access.php');
-if (isset($_POST['email'])) $pEmail = $_POST['email'];
+if (isset($_POST['email'])) $pEmail = addslashes($_POST['email']);
 if (empty($pEmail)) unset($pEmail);
 
 if (isset($_POST['emailpass'])) $pEmailpass = $_POST['emailpass'];
 if (empty($pEmailpass)) unset($pEmailpass);
 
-if (isset($_POST['defaultcoverletter'])) $pDefaultcoverletter = $_POST['defaultcoverletter'];
+if (isset($_POST['defaultcoverletter'])) $pDefaultcoverletter = addslashes($_POST['defaultcoverletter']);
 if (empty($pDefaultcoverletter)) unset($pDefaultcoverletter);
 
-if (isset($_POST['replytoname'])) $pReplytoname = $_POST['replytoname'];
+if (isset($_POST['replytoname'])) $pReplytoname = addslashes($_POST['replytoname']);
 if (empty($pReplytoname)) unset($pReplytoname);
 
 

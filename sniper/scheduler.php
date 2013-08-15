@@ -5,7 +5,7 @@ if(isset($_POST['email']))
 {
     if(isset($_POST['emailbody']))
     {
-        addmail($_SESSION['UserID'],$_POST['date'],$_POST['email'],$_POST['emailbody'],$_POST['reminder'],$_POST['url'],$_POST['subject']);
+        addmail(addslashes($_SESSION['UserID']),addslashes($_POST['date']),addslashes($_POST['email']),addslashes($_POST['emailbody']),addslashes($_POST['reminder']),addslashes($_POST['url']),addslashes($_POST['subject']));
     }
 }
 ?>

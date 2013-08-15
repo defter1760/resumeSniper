@@ -90,7 +90,7 @@ foreach ($namelist as $userkey => $userval)
                 {
                   echo $e->getMessage(); //Boring error messages from anything else!
                 }
-                $query = "UPDATE applied set sent='y' where userid='".$userid."' and idapplied='".$mailID."'";
+                $query = "UPDATE applied set sent='y',sentdate='".$dateNOW."' where userid='".$userid."' and idapplied='".$mailID."'";
                 $result = mysql_query($query) or die('Query failed: ' . mysql_error());
             }
         }
