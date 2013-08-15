@@ -65,7 +65,7 @@ if(isset($pEmail))
         <td>
             <h2>
             <?PHP
-                echo 'Hello '.$_SESSION['UserName'].'!<br> Update details, log out to see changes.<br><br>Current hour of day:<b> '.date('H').'</b>';
+                echo 'Hello '.$_SESSION['UserName'].'!<br> Update details, log out to see changes.<br><br>Current time of day:<b> '.date('H'":"'M').'</b>';
             ?> 
         </td>
     </tr>
