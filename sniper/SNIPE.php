@@ -19,19 +19,19 @@ foreach ($namelist as $userkey => $userval)
     {
         if($hourNOW == $hourval)
         {
-            getuserdetails($username);
+            getuserdetails($userval);
             $mailbomb= explode('@',$email);
             $maildomain= $mailbomb['1'];
-            decryptthis($username,$emailpassmd5);
+            decryptthis($userval,$emailpassmd5);
             if($maildomain == 'gmail.com')
             {
                 $mailhost= 'ssl://smtp.gmail.com';
                 $mailauth= 'true';
                 $mailport= '465';
             }
-            if(is_dir("upload/".$username))
+            if(is_dir("upload/".$userval))
             {
-                $files1 = scandir("upload/".$username);
+                $files1 = scandir("upload/".$userval);
                 foreach($files1 as $valfile)
                 {
                     if($valfile != '.')
@@ -40,13 +40,13 @@ foreach ($namelist as $userkey => $userval)
                         {
                             if($valfile != 'old')
                             {
-                                $attachment2= "upload/".$username."/".$valfile;
+                                $attachment2= "upload/".$userval."/".$valfile;
                             }
                         }
                     }
                 }
             }
-            $query = "SELECT * FROM userdata where username='".$username."'";
+            $query = "SELECT * FROM userdata where username='".$userval."'";
             $result = mysql_query($query) or die('Query failed: ' . mysql_error());
             while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
             {
