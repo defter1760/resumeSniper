@@ -136,8 +136,18 @@ a.schedule:active {color:#000;}  /* selected link */
 </style>
 
 </head>
-	    <h3>
-                <a href=index.php>Home</a>
-                <a href=scheduler.php>Scheduler</a>
-                <a href=logout.php>Log out</a>
-	    </h3>
+  <table style="border:1px solid black;">
+    <tr>
+	<td>
+	    <h1>Resume Sniper [by Ian Hutchings]
+	    </h1>
+        </td>
+        <tr>
+            <td>
+                <h3>
+                    <a href=index.php>Home</a>
+                    <a href=scheduler.php>Scheduler</a>
+                    <a href=logout.php>Log out</a>
+                </h3>
+            </td>
+        </tr>

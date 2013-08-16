@@ -32,12 +32,13 @@ $pPass = $_POST['password'];
         }
         else
         {
-            die ('Incorrect password');
+            die ('<h1>User exists but, Incorrect password!</h1>');
         }
     }
     else
     {
-        echo 'Adding user: '.$_POST['username'];
+        echo '<h1>Adding user:<b> '.$_POST['username'];
+        echo '</b></h1><h2>Ready to log in.</h2>';
         adduser($_POST['username'],$_POST['password']);
     }
     
@@ -64,17 +65,31 @@ if (!$_SESSION['loggedIn']):
 <title>Login</title>
 </head>
   <body>
-  <form method="post">
-  <table style="border:1px solid black;">
+  
+<!--  <table style="border:1px solid black;">
     <tr>
 	<td>
-	
 	    <h1>Resume Sniper
-	    </h1>
-	    <table>
+	    </h1>-->
+	    <tr>
+            <td>
+	    <form method="post">
+            <table>
 		<tr>
 		    <td>
-                        <h2>You need to login:</h2>
+                        <h2>Automatically fire off job application emails at a specified hour of the day!</h2>
+                    </td>
+                </tr>
+                <tr>
+		    <td>
+                        <h2>Set up your scheduled emails, and walk away.</h2>
+                    </td>
+                </tr>
+            </table>
+            <table >
+                <tr>
+		    <td>
+                        <h2>You need to login or <br>create an account:</h2>
                     </td>
                 </tr>
                 <tr>

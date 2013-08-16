@@ -9,7 +9,8 @@ if(isset($_POST['email']))
     }
 }
 ?>
-
+<tr>
+    <td>
 <form method="post">
 <table style="border-collapse:collapse;" style="border:1px solid black;">
     <tr>

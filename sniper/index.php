@@ -44,14 +44,14 @@ if(isset($pEmail))
 <script type="text/javascript">bkLib.onDomLoaded(nicEditors.allTextAreas);</script>
 
 <form action="index.php" method="POST" class="form">
-  <table style="border:1px solid black;">
+<!--  <table style="border:1px solid black;">
     <tr>
 	<td>
 	
 	    <h1>Resume Sniper [by Ian Hutchings]
 	    </h1>
         </td>
-    </tr>
+    </tr>-->
     <tr>
 	<td>
 <!--	    <h3>
