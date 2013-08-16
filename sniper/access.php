@@ -60,10 +60,7 @@ if (!$_SESSION['loggedIn']):
 
 ?>
 
-<html>
-<head>
-<title>Login</title>
-</head>
+
   <body>
   
 <!--  <table style="border:1px solid black;">
