@@ -97,7 +97,7 @@ function getmaildetails($usernamemail)
         $userid = $line['iduserdata'];
     }    
     
-    $query2 = "SELECT * FROM applied where userid='".$userid."'";
+    $query2 = "SELECT * FROM applied where userid='".$userid."' order by idapplied desc";
     $result2 = mysql_query($query2) or die('Query failed: ' . mysql_error());
     
     while ($line2 = mysql_fetch_array($result2, MYSQL_ASSOC))
