@@ -106,7 +106,7 @@ function getmaildetails($usernamemail)
     echo '<tr>';
         echo '<td style="border:1px solid black;" valign=bottom>';
             echo '<input type=text disabled=disabled value="';
-            echo date(m."-".d."-".Y);
+            echo $line2['date'];
             echo '">';
         echo '</td>';
         echo '<td style="border:1px solid black;" valign=bottom>';
