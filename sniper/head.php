@@ -45,6 +45,22 @@ textarea.index {
     line-height: 150%;
     font: normal 10px/100% Verdana, Tahoma, sans-serif;
     }
+textarea.index2 {   
+    width: 250px;  
+    max-width: 550px;  
+    height: 10em;  
+    line-height: 100%;
+    font: normal 8px/100% Verdana, Tahoma, sans-serif;
+    padding: 9px;  
+    border: solid 1px #E5E5E5;  
+    outline: 0;   
+    /*width: 200px;  */
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));  
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);  
+    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px;  
+    }    
 select.index{   
     padding: 9px;  
     border: solid 1px #E5E5E5;  

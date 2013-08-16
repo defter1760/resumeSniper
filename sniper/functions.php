@@ -102,6 +102,7 @@ function getmaildetails($usernamemail)
     
     while ($line2 = mysql_fetch_array($result2, MYSQL_ASSOC))
     {
+        $THISappliedid = $line2['idapplied'];
     echo '<tr>';
         echo '<td style="border:1px solid black;" valign=bottom>';
             echo '<input type=text disabled=disabled value="';
@@ -134,11 +135,38 @@ function getmaildetails($usernamemail)
             echo '</a>';
         echo '</td>';
         echo '<td style="border:1px solid black;" valign=bottom>';
-            echo '<textarea  disabled=disabled>';
+            echo '<textarea  class=index2 disabled=disabled>';
             if(isset($line2['sent']))
             {
-                echo 'Sent date:';
+                echo 'Sent date:
+    ';
                 echo $line2['sentdate'];
+                
+                    $query = "SELECT * FROM userdata where username='".$usernamemail."'";
+                    $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+                    
+                    while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
+                    {
+                        
+                        $userid = $line['iduserdata'];
+                        #echo $userid;
+                    }    
+                    
+                    $querymailarray = "SELECT * FROM hits where userid='".$userid."' and appliedid='".$THISappliedid."' order by idhits desc";
+                    $resultmailarray = mysql_query($querymailarray) or die('Query failed: ' . mysql_error());
+                    while ($line3 = mysql_fetch_array($resultmailarray, MYSQL_ASSOC))
+                    {
+                        echo '
+    ';
+                        echo 'Opened:'.$line3['date'].' @ '.$line3['time'];
+                        echo '
+    ';
+                        echo 'From:'.$line3['ip'].' @ '.$line3['resolution'];
+                        echo '
+    ';
+                    }
+                        #print_r($mailarray);
+                
             }
             echo '</textarea>';
         echo '</td>';        
@@ -244,5 +272,32 @@ function updateuser($usernameupdate,$fieldname,$fieldsetto)
     }
     
          
+}
+
+function getmailhits($usernamemail)
+{
+    global $mailhits;
+    
+    $query = "SELECT * FROM userdata where username='".$usernamemail."'";
+    $result = mysql_query($query) or die('Query failed: ' . mysql_error());
+    
+    while ($line = mysql_fetch_array($result, MYSQL_ASSOC))
+    {
+        
+        $userid = $line['iduserdata'];
+        #echo $userid;
+    }    
+    
+    $querymailarray = "SELECT * FROM hits where userid='".$userid."' and appliedid IS NOT NULL";
+    $resultmailarray = mysql_query($querymailarray) or die('Query failed: ' . mysql_error());
+    while ($line2 = mysql_fetch_array($resultmailarray, MYSQL_ASSOC))
+    {
+        
+        $mailID = $line2['idapplied'];
+        $mailADDRESS = $line2['emailaddress'];
+        $mailTEXT = $line2['emailtext'];
+        
+    }
+        #print_r($mailarray);
 }
 ?>
