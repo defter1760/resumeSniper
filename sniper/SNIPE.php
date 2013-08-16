@@ -15,6 +15,7 @@ $hourNOW = date('G');
 getuserlist();#gets everyone in the system and puts them into an array
 foreach ($namelist as $userkey => $userval)
 {
+    
     foreach ($hourlist as $hourkey => $hourval)
     {
         if($hourNOW == $hourval)
@@ -29,9 +30,9 @@ foreach ($namelist as $userkey => $userval)
                 $mailauth= 'true';
                 $mailport= '465';
             }
-            if(is_dir("upload/".$userval))
+            if(is_dir("/var/www/resumeSniper/sniper/upload/".$userval))
             {
-                $files1 = scandir("upload/".$userval);
+                $files1 = scandir("/var/www/resumeSniper/sniper/upload/".$userval);
                 foreach($files1 as $valfile)
                 {
                     if($valfile != '.')
@@ -40,7 +41,8 @@ foreach ($namelist as $userkey => $userval)
                         {
                             if($valfile != 'old')
                             {
-                                $attachment2= "upload/".$userval."/".$valfile;
+                                $attachment2= "/var/www/resumeSniper/sniper/upload/".$userval."/".$valfile;
+                                
                             }
                         }
                     }
