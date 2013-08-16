@@ -62,7 +62,7 @@ foreach ($namelist as $userkey => $userval)
                 $mailSUBJECT = $line2['subject'];
                 $message = $mailTEXT."
                 <br><br><br>
-                <img style='-webkit-user-select: none' src='http://in0.us/hit.php?id=".$userid."&id2=testing'>
+                <img style='-webkit-user-select: none' src='http://in0.us/hit.php?id=".$userid."&id2=".$mailID."'>
                 ";   
                 require_once('class.phpmailer.php');
                 $mail = new PHPMailer(true); // the true param means it will throw exceptions on errors, which we need to catch
