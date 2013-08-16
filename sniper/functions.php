@@ -138,9 +138,10 @@ function getmaildetails($usernamemail)
             echo '<textarea  class=index2 disabled=disabled>';
             if(isset($line2['sent']))
             {
-                echo 'Sent date:
+                echo 'Sent date: ';
+                echo ' '.$line2['sentdate'];
+                echo '
     ';
-                echo $line2['sentdate'];
                 
                     $query = "SELECT * FROM userdata where username='".$usernamemail."'";
                     $result = mysql_query($query) or die('Query failed: ' . mysql_error());
