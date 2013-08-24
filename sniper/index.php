@@ -1,6 +1,7 @@
 <?php
-require('head.php');
 require('access.php');
+require('head.php');
+
 if (isset($_POST['email'])) $pEmail = addslashes($_POST['email']);
 if (empty($pEmail)) unset($pEmail);
 

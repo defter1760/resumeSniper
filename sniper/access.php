@@ -57,7 +57,7 @@ if (!$_SESSION['loggedIn']):
 //{
 //    echo 'Woof';
 //}
-
+require('head.php');
 ?>
 
 
