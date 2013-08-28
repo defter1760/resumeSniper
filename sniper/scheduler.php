@@ -1,6 +1,7 @@
 <?PHP
-require('head.php');
+
 require('access.php');
+require('head.php');
 if(isset($_POST['email']))
 {
     if(isset($_POST['emailbody']))
