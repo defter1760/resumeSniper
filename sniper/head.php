@@ -139,7 +139,7 @@ a.schedule:active {color:#000;}  /* selected link */
   <table style="border:1px solid black;">
     <tr>
 	<td>
-	    <h1>Resume Sniper [by Ian Hutchings]
+	    <h1>Resume Sniper
 	    </h1>
         </td>
         <tr>
