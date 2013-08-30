@@ -232,6 +232,6 @@ if(isset($pEmail))
 
 <?PHP
 
-require('../../like/index2.php')
+require('../../like/index.php')
 
 ?>
