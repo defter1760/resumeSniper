@@ -2,11 +2,11 @@
 require('access.php');
 if(isset($_SESSION['UserID']))
 {
-    
+    require('head.php');
 }
 else
 {
-    require('head.php');
+    
 
 }
 if (isset($_POST['email'])) $pEmail = addslashes($_POST['email']);
