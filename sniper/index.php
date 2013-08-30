@@ -1,6 +1,6 @@
 <?php
 require('access.php');
-require('head.php');
+
 
 if (isset($_POST['email'])) $pEmail = addslashes($_POST['email']);
 if (empty($pEmail)) unset($pEmail);
@@ -232,6 +232,6 @@ if(isset($pEmail))
 
 <?PHP
 
-
+require('../../like/index2.php')
 
 ?>
