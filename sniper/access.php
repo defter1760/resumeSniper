@@ -39,7 +39,7 @@ $pPass = $_POST['password'];
     {
         echo '<h1>Adding user:<b> '.$_POST['username'];
         echo '</b></h1><h2>Ready to log in.</h2>';
-        adduser($_POST['username'],$_POST['password']);
+        adduser(escapes($_POST['username']),escapes($_POST['password']));
     }
     
 }

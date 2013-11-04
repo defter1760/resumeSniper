@@ -24,7 +24,12 @@ function decryptthis($key,$encrypted)
 
 
 }
-
+function escapes($str)
+         {
+                 $search=array("\\","\0","\n","\r","\x1a","'",'"');
+                 $replace=array("\\\\","\\0","\\n","\\r","\Z","\'",'\"');
+                 return str_replace($search,$replace,$str);
+         }
 function getuserdetails($usernamedetails)
 {
     global $lineuser;
